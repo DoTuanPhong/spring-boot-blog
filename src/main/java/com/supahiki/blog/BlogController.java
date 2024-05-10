@@ -10,4 +10,5 @@ public class BlogController {
     public String blogPage(){
      return "blog";
  }
+
 }
