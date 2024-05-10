@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Post</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>New Post</h1>
+</header>
+<form action="#" th:action="@{/post}" th:object="${post}" method="post">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" th:field="*{title}" name="title"><br>
+    <label for="content">Content:</label><br>
+    <textarea id="content" th:field="*{content}" name="content"></textarea><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

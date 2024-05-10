@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>My Blog</h1>
+</header>
+<div th:each="post : ${posts}">
+    <h2 th:text="${post.title}"></h2>
+    <p th:text="${post.dateCreated}"></p>
+    <p th:text="${#strings.abbreviate(post.content, 200)}"></p>
+    <a th:href="@{/post/{id}(id=${post.id})}">Read More</a>
+</div>
+</body>
+</html>
