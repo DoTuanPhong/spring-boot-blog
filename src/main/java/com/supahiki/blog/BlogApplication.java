@@ -23,6 +23,8 @@ public class BlogApplication {
 
 	@GetMapping("")
 	public List<Post> hello(){
-		return List.of(new Post(1,"Sample Post Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit."));
+		return List.of(
+				new Post(/*1,"Sample Post Title",
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit."*/));
 	}
 }
