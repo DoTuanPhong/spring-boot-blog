@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 @Table(name = "category")
 public class Category {
     @Column(name = "category_id")
-    private int categoryId;
+    private Integer categoryId;
     private String name;
 
     public String getName() {
@@ -19,11 +19,11 @@ public class Category {
         this.name = name;
     }
 
-    public int getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 }
