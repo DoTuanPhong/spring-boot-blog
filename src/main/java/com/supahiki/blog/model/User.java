@@ -9,13 +9,13 @@ import jakarta.persistence.Table;
 @Table(name="user")
 public class User {
     @Column(name = "user_id")
-    private int userId;
+    private Integer userId;
     @Column(name = "user_name")
     private String username;
     private String  email;
     private String password;
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -31,7 +31,7 @@ public class User {
         this.password = password;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
