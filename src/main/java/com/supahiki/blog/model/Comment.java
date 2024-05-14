@@ -3,16 +3,17 @@ package com.supahiki.blog.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 @Table(name = "comment")
 public class Comment {
     @Column(name = "comment_id")
-    private int commentId;
+    private Integer commentId;
     private String content;
     @Column(name = "create_at")
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", nullable = false)
@@ -25,11 +26,11 @@ public class Comment {
     public Comment() {
     }
 
-    public int getCommentId() {
+    public Integer getCommentId() {
         return commentId;
     }
 
-    public void setCommentId(int commentId) {
+    public void setCommentId(Integer commentId) {
         this.commentId = commentId;
     }
 
@@ -41,11 +42,11 @@ public class Comment {
         this.content = content;
     }
 
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -65,7 +66,7 @@ public class Comment {
         this.user = user;
     }
 
-    public Comment(int commentId, String content, Date createdAt, Post post, User user) {
+    public Comment(int commentId, String content, LocalDateTime createdAt, Post post, User user) {
         this.commentId = commentId;
         this.content = content;
         this.createdAt = createdAt;
