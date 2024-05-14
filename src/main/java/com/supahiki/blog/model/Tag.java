@@ -8,14 +8,14 @@ import jakarta.persistence.Table;
 @Table(name = "tag")
 public class Tag {
     @Column(name = "tag_id")
-    private int tagId;
+    private Integer tagId;
     private String name;
 
-    public int getTagId() {
+    public Integer getTagId() {
         return tagId;
     }
 
-    public void setTagId(int tagId) {
+    public void setTagId(Integer tagId) {
         this.tagId = tagId;
     }
 
