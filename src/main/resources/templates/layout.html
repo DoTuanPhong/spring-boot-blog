@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supahiki Blog</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+    <h1>Supahiki Blog</h1>
+    <nav>
+        <a th:href="@{/}" href="/">Home</a>
+        <a th:href="@{/post/create}" href="/post/create">Create Post</a>
+    </nav>
+</header>
+<main th:fragment="content">
+    <!-- Content will be replaced by specific page templates -->
+</main>
+<footer>
+    <p>&copy; 2024 Supahiki Blog</p>
+</footer>
+</body>
+</html>
