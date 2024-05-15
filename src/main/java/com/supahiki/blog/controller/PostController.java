@@ -1,7 +1,10 @@
 package com.supahiki.blog.controller;
 
+import com.supahiki.blog.dto.PostDto;
 import com.supahiki.blog.model.Post;
+import com.supahiki.blog.payload.PagedResponse;
 import com.supahiki.blog.service.PostService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +18,17 @@ import java.util.Optional;
 public class PostController {
 
     @Autowired
+    private ModelMapper modelMapper;
+
+    @Autowired
     private PostService postService;
 
     @GetMapping
-    public List<Post> getAllPosts(){
-        return postService.getAllPosts();
+    public PagedResponse<PostDto> getAllPosts(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "12") int size){
+
+        return postService.getAllPosts(page, size);
     }
 
     @GetMapping("/author/{username}")
@@ -28,9 +37,10 @@ public class PostController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Post> getPostById(@PathVariable Integer id){
+    public ResponseEntity<PostDto> getPostById(@PathVariable Integer id){
         Optional<Post> optionalPost = postService.getPostById(id);
-        return optionalPost.map(ResponseEntity::ok).orElseGet(()-> ResponseEntity.notFound().build());
+        return optionalPost.map(post -> ResponseEntity.ok(modelMapper.map(post, PostDto.class)))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
