@@ -8,7 +8,9 @@ import java.util.Date;
 @Entity
 @Table (name = "post")
 public class Post {
+    @Id
     @Column(name = "post_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer postId;
 
     private String title;
@@ -71,6 +73,4 @@ public class Post {
         this.author = author;
     }
 
-    public Post() {
-    }
 }

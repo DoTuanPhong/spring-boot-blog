@@ -1,13 +1,14 @@
 package com.supahiki.blog.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tag")
-public class Tag {
+public class Tag{
+
+    @Id
     @Column(name = "tag_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer tagId;
     private String name;
 

@@ -9,7 +9,9 @@ import java.util.Date;
 @Entity
 @Table(name = "comment")
 public class Comment {
+    @Id
     @Column(name = "comment_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer commentId;
     private String content;
     @Column(name = "create_at")
@@ -63,14 +65,6 @@ public class Comment {
     }
 
     public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Comment(int commentId, String content, LocalDateTime createdAt, Post post, User user) {
-        this.commentId = commentId;
-        this.content = content;
-        this.createdAt = createdAt;
-        this.post = post;
         this.user = user;
     }
 }
