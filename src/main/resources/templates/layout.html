@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Supahiki Blog</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>My Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
 <header>
-    <h1>Supahiki Blog</h1>
     <nav>
-        <a th:href="@{/}" href="/">Home</a>
-        <a th:href="@{/post/create}" href="/post/create">Create Post</a>
+        <ul>
+            <li><a href="/posts">Home</a></li>
+            <li><a href="/posts/create">Create Post</a></li>
+        </ul>
     </nav>
 </header>
-<main th:fragment="content">
-    <!-- Content will be replaced by specific page templates -->
+<main>
+    <div th:replace="~{::content}"></div>
 </main>
 <footer>
-    <p>&copy; 2024 Supahiki Blog</p>
+    <p>&copy; 2024 My Blog</p>
 </footer>
 </body>
 </html>

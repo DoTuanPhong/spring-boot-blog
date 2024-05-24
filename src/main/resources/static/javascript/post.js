@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Function to fetch and display all posts
     function fetchPosts() {
-        fetch('/api/posts')
+        fetch('/posts')
             .then(response => response.json())
             .then(posts => {
                 // Update the UI with fetched posts
